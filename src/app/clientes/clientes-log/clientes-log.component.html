@@ -10,10 +10,10 @@
     </ng-template>
     <ng-template pTemplate="body" let-log>
         <tr>
-            <td>{{ log.data }}</td>
-            <td>{{ log.nome }}</td>
+            <td>{{ log.dataHora }}</td>
+            <td>{{ log.cliente.nome }}</td>
             <td>{{ log.sala }}</td>
-            <td>{{ log.status }}</td>
+            <td>{{ log.statusDoLog }}</td>
             
         </tr>
     </ng-template>
