@@ -1,0 +1,20 @@
+<div class="conteudo">
+    <h1>BUSCA CLIEENTE</h1>
+    <form [formGroup]="form" (submit)="buscaCpf()" >          
+        <div class="formulario-campo">
+            <span class="p-float-label">
+                <input id="cpf" type="text" pInputText formControlName="cpf" />
+                <label htmlFor="cpf">CPF</label>
+            </span>
+        </div>
+        <p-button  label="Buscar Cliente" [loading]="loading" type="submit" [disabled]="form.invalid"></p-button>
+    </form>
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
+<div *ngIf="!!clienteEncontrado" class="formulario-campo"> 
+    <p>{{clienteEncontrado.nome}}</p>
+    <p>{{clienteEncontrado.email}}</p>
+    <p>{{clienteEncontrado.telefone}}</p>
+    <p>{{clienteEncontrado.idade}}</p>
+</div>
+

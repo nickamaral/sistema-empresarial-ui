@@ -1,0 +1,44 @@
+<h1>Tabela de Clientes</h1>
+<p-button label="Adicionar cliente" 
+(click)="abreFormulario()"
+styleClass="p-button-rounded p-button-success mx-2"></p-button>
+<p-button label="Busca Cliente" (click)="abreBusca()" styleClass="p-button-rounded p-button-info mx-2"></p-button>
+<p-table [value]="listaDeClientes" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr class="centralizada">
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Cpf</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>              
+        <tr class="centralizada">
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.telefone }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td [ngClass]="cliente.statusDoCliente">{{ cliente.statusDoCliente }}</td>
+            <td>
+                <p-button (click)="abreLogDeCliente(cliente)" icon="pi pi-eye" styleClass="p-button-rounded p-button-secondary mx-2"></p-button>
+                <p-button (click)="clienteComoAusente(cliente)" *ngIf="cliente.statusDoCliente == 'PRESENTE'" icon="pi pi-bell" styleClass="p-button-rounded p-button-primary mx-2"></p-button>
+                <p-button (click)="clienteComoPresente(cliente)" *ngIf="cliente.statusDoCliente == 'AUSENTE'" icon="pi pi-heart" styleClass="p-button-rounded p-button-help mx-2"></p-button>
+                <p-button (click)="editaCliente(cliente)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning mx-2"></p-button>
+                <p-button (click)="abreModalParaRemoverCliente(cliente)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger mx-2"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-toast></p-toast>
+<p-confirmDialog #cd [style]="{width: '50vw'}">
+    <ng-template pTemplate="header">
+        <h3>AVISO</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+        
+    </ng-template>
+</p-confirmDialog>

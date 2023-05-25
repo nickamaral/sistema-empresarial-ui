@@ -1,0 +1,39 @@
+<div class="conteudo">
+    <h1 *ngIf="isInserindo">FORMULÁRIO CLIENTE</h1>
+    <h1 *ngIf="!isInserindo">EDITANDO CLIENTE</h1>
+    <form [formGroup]="form" (submit)="criaCliente()" *ngIf="form">          
+        <div class="formulario-campo">
+            <span class="p-float-label">
+                <input id="nome" type="text" pInputText formControlName="nome" />
+                <label htmlFor="username">Nome</label>
+            </span>
+        </div>
+        <div class="formulario-campo">
+            <span class="p-float-label">
+                <input id="cpf" type="text" pInputText formControlName="cpf" />
+                <label htmlFor="cpf">CPF</label>
+            </span>
+        </div>
+        <div class="formulario-campo">
+            <span class="p-float-label">
+                <input id="idade" type="text" pInputText formControlName="idade" />
+                <label htmlFor="idade">Idade</label>
+            </span>
+        </div>
+        <div class="formulario-campo">
+            <span class="p-float-label">
+                <input id="telefone" type="text" pInputText formControlName="telefone" />
+                <label htmlFor="telefone">Telefone</label>
+        </span>
+    </div>
+    <div class="formulario-campo">
+        <span class="p-float-label">
+            <input id="gmail" type="text" pInputText formControlName="email" />
+            <label htmlFor="gmail">Email</label>
+        </span>
+    </div>
+    <p-button  *ngIf="isInserindo" label="Adcionar Cliente" [loading]="loading" type="submit" [disabled]="form.invalid"></p-button>
+    <p-button  *ngIf="!isInserindo" label="Alterar Cliente" [loading]="loading" type="submit" [disabled]="form.invalid"></p-button>
+</form>
+<p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
