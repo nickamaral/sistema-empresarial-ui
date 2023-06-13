@@ -2,16 +2,18 @@
 <p-table [value]="logsDoCliente" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>
-            <th>Data Hora</th>
-            <th>Nome</th>
-            <th>Sala</th>
-            <th>Status</th>
+            <th>DATA HORA</th>
+            <th>NOME</th>
+            <th>CPF</th>
+            <th>SALA</th>
+            <th>STATUS</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-log>
         <tr>
-            <td>{{ log.dataHora }}</td>
-            <td>{{ log.cliente.nome }}</td>
+            <td>{{log.dataHora | date: 'dd/MM/yyyy HH:mm:ss'}}</td> 
+            <td>{{ log.nomeDoCliente }}</td>
+            <td>{{ log.cpfDoCliente }}</td>
             <td>{{ log.sala }}</td>
             <td>{{ log.statusDoLog }}</td>
             

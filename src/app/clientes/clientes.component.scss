@@ -1,12 +1,27 @@
-table{
+.listaDeClientes{
     background-color: yellow;
 }
+
+
 
 .PRESENTE{
     background-color: green;
     color: white;
-}
-
-.centralizada{
     text-align: center;
 }
+
+.AUSENTE {
+    background-color: rgb(244, 17, 17);
+    color: white;
+    text-align: center;
+}
+
+
+.header, td{
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 5px;
+    padding: 10px;
+    
+}
+
