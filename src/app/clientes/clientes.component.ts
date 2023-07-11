@@ -14,6 +14,8 @@ import { ClienteModel } from './interfaces/cliente-model.interface';
 export class ClientesComponent implements OnInit {
   listaDeClientes: ClienteModel[] = [] 
   checked: boolean = false;
+  modalInformacoesClienteVisible: boolean = false;
+  clienteSelecionado?: ClienteModel;
   constructor(private clienteService: ClientesService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) { }
   ngOnInit(): void {
     this.buscaListaDeClientes()
@@ -67,5 +69,9 @@ export class ClientesComponent implements OnInit {
   }
   abreLogDeCliente(cliente: ClienteModel){
     this.router.navigateByUrl(`/${path.CLIENTE_LOG}/${cliente.id}`)
+  }
+  abreModalDeInformacoesCliente(cliente: ClienteModel){
+    this.modalInformacoesClienteVisible = true
+    this.clienteSelecionado = cliente
   }
 }

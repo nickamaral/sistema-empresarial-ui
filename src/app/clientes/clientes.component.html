@@ -37,6 +37,8 @@
                 <p-button (click)="clienteComoPresente(cliente)" *ngIf="cliente.statusDoCliente == 'AUSENTE'" icon="pi pi-heart" styleClass="p-button-rounded p-button-help mx-2"></p-button>
                 <p-button (click)="editaCliente(cliente)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning mx-2"></p-button>
                 <p-button (click)="abreModalParaRemoverCliente(cliente)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger mx-2"></p-button>
+                <p-button (click)="abreModalDeInformacoesCliente(cliente)" icon="pi pi-external-link" label="Show"></p-button>
+                
             </td>
         </tr>
     </ng-template>
@@ -52,3 +54,21 @@
         
     </ng-template>
 </p-confirmDialog>
+<p-dialog header="Header" [(visible)]="modalInformacoesClienteVisible" [style]="{ width: '50vw' }"  >
+    <p>
+        <span class="mx-2"><strong>NOME: </strong></span>{{clienteSelecionado?.nome}}
+    </p>
+    <p>
+        <span class="mx-2"><strong>IDADE: </strong></span>{{clienteSelecionado?.idade}}
+    </p>
+    <P>
+        <span class="mx-2"><strong>TELEFONE: </strong></span>{{clienteSelecionado?.telefone}}
+    </P>
+    <p>
+        <span class="mx-2"><strong>CPF: </strong></span>{{clienteSelecionado?.cpf}}
+    </p>
+    <p>
+        <span class="mx-2"><strong>EMAIL: </strong></span>{{clienteSelecionado?.email}}
+    </p>
+</p-dialog>
+

@@ -14,12 +14,14 @@ import { ClientesBuscaModule } from './clientes-busca/clientes-busca.module';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ClientesLogComponent } from './clientes-log/clientes-log.component';
 import { ClientesLogModule } from './clientes-log/clientes-log.module';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
   declarations: [ClientesComponent],
   exports: [ClientesComponent],
   imports: [
+    DialogModule,
     ClientesLogModule,
     ClientesFormularioModule,
     ClientesBuscaModule,
