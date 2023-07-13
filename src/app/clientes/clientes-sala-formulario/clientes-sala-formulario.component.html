@@ -1,0 +1,8 @@
+<div class="sala-form">
+<form (submit)="enviaSala()" [formGroup]="form"> 
+    <div class="p-inputgroup">
+        <input formControlName="sala" type="text" pInputText placeholder="Keyword" />
+        <button [disabled]="form.invalid" type="submit" pButton icon="pi pi-refresh" styleClass="p-button-warn"></button>
+    </div>
+</form>
+</div>

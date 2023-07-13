@@ -15,15 +15,18 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ClientesLogComponent } from './clientes-log/clientes-log.component';
 import { ClientesLogModule } from './clientes-log/clientes-log.module';
 import { DialogModule } from 'primeng/dialog';
+import { ClientesSalaFormularioComponent } from './clientes-sala-formulario/clientes-sala-formulario.component';
+import { ClientesSalaFormularioModule } from './clientes-sala-formulario/clientes-sala-formulario.module';
 
 
 @NgModule({
-  declarations: [ClientesComponent],
+  declarations: [ClientesComponent, ],
   exports: [ClientesComponent],
   imports: [
     DialogModule,
     ClientesLogModule,
     ClientesFormularioModule,
+    ClientesSalaFormularioModule,
     ClientesBuscaModule,
     ToastModule,
     CommonModule,
