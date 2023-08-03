@@ -1,3 +1,4 @@
 export interface ClienteStatusForm{
-    status: string
+    status: string, 
+    sala: string
 }

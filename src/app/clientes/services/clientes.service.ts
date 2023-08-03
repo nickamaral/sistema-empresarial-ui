@@ -13,13 +13,13 @@ export class ClientesService {
   constructor(private http:HttpClient) { }
 
   marcaClienteAusente(cliente: ClienteModel) {
-    const clienteStatusForm:ClienteStatusForm={status:"AUSENTE"}
+    const clienteStatusForm={status:"AUSENTE"}
     return this.http.post(`http://localhost:8080/clientes/${cliente.id}/status`,clienteStatusForm)
   }
-  marcaClientePresente(cliente: ClienteModel) {
-    const clienteStatusForm:ClienteStatusForm={status:"PRESENTE"}
-    return this.http.post(`http://localhost:8080/clientes/${cliente.id}/status`,clienteStatusForm)
+  marcaClientePresente(id:string,clienteStatusForm:ClienteStatusForm){
+    return this.http.post(`http://localhost:8080/clientes/${id}/status`,clienteStatusForm)
   }
+
   buscaPorId(id:string  ) {
     return this.http.get<ClienteModel>(`http://localhost:8080/clientes/${id}`)
   }

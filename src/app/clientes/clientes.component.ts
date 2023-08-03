@@ -62,13 +62,8 @@ export class ClientesComponent implements OnInit {
       this.buscaListaDeClientes()
     })
   }
-  clienteComoPresente(cliente: ClienteModel){
-    this.clienteService.marcaClientePresente(cliente).subscribe(()=> {
-      this.buscaListaDeClientes()
-    })
-  }
   abreLogDeCliente(cliente: ClienteModel){
-    this.router.navigateByUrl(`/${path.CLIENTE_LOG}/${cliente.id}`)
+    this.router.navigateByUrl(`/${path.CLIENTE_LOG}/${cliente}`)
   }
   abreModalDeInformacoesCliente(cliente: ClienteModel){
     this.modalInformacoesClienteVisible = true

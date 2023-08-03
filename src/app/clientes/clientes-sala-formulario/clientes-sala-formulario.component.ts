@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClienteStatusForm } from '../interfaces/cliente-status-form.interface';
+import { ClientesService } from '../services/clientes.service';
 
 @Component({
   selector: 'app-clientes-sala-formulario',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ClientesSalaFormularioComponent implements OnInit{
   @Input() idCliente!: string
   form!: FormGroup;
-constructor(private formBuilder:FormBuilder){}
+constructor(private formBuilder:FormBuilder,private clientesService:ClientesService){}
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       sala:['',Validators.required]
@@ -19,6 +21,9 @@ constructor(private formBuilder:FormBuilder){}
     const formSala = this.form.getRawValue()
     console.log(formSala.sala)
     console.log(this.idCliente)
+    const clienteStatusForm:ClienteStatusForm={sala: formSala.sala,status:"PRESENTE",}
+    this.clientesService.marcaClientePresente(this.idCliente,clienteStatusForm).subscribe(()=> console.log("Atualizado"))
   }
+
 }
 
