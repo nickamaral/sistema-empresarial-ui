@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClienteStatusForm } from '../interfaces/cliente-status-form.interface';
 import { ClientesService } from '../services/clientes.service';
@@ -10,7 +10,8 @@ import { ClientesService } from '../services/clientes.service';
 })
 export class ClientesSalaFormularioComponent implements OnInit{
   @Input() idCliente!: string
-  form!: FormGroup;
+  @Output() atualizarListaEventEmmitter=new EventEmitter()
+    form!: FormGroup;
 constructor(private formBuilder:FormBuilder,private clientesService:ClientesService){}
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -22,8 +23,9 @@ constructor(private formBuilder:FormBuilder,private clientesService:ClientesServ
     console.log(formSala.sala)
     console.log(this.idCliente)
     const clienteStatusForm:ClienteStatusForm={sala: formSala.sala,status:"PRESENTE",}
-    this.clientesService.marcaClientePresente(this.idCliente,clienteStatusForm).subscribe(()=> console.log("Atualizado"))
+    this.clientesService.marcaClientePresente(this.idCliente,clienteStatusForm).subscribe(()=> this.atualizarListaEventEmmitter.emit())
   }
+
 
 }
 

@@ -36,7 +36,9 @@
                 <p-button (click)="editaCliente(cliente)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning mx-2"></p-button>
                 <p-button (click)="abreModalParaRemoverCliente(cliente)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger mx-2"></p-button>
                 <p-button (click)="abreModalDeInformacoesCliente(cliente)" icon="pi pi-external-link" label="Show"></p-button>
-            <app-clientes-sala-formulario *ngIf="cliente.statusDoCliente == 'AUSENTE'" [idCliente]="cliente.id"></app-clientes-sala-formulario>
+            <app-clientes-sala-formulario *ngIf="cliente.statusDoCliente == 'AUSENTE'"
+            (atualizarListaEventEmmitter)="atualizaListaClientes()"
+            [idCliente]="cliente.id"></app-clientes-sala-formulario>
             </td>
         </tr>
     </ng-template>

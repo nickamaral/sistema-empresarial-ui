@@ -69,4 +69,7 @@ export class ClientesComponent implements OnInit {
     this.modalInformacoesClienteVisible = true
     this.clienteSelecionado = cliente
   }
+  atualizaListaClientes(){
+    this.buscaListaDeClientes()
+  }
 }
