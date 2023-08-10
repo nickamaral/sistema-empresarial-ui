@@ -4,12 +4,16 @@ import { ClienteForm } from '../interfaces/cliente-form.interface';
 import { ClienteModel } from '../interfaces/cliente-model.interface';
 import { SubscriptionLoggable } from 'rxjs/internal/testing/SubscriptionLoggable';
 import { ClienteStatusForm } from '../interfaces/cliente-status-form.interface';
+import { ClienteModelInfos } from '../interfaces/cliente-model-infos.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ClientesService {
+  pegaTodasInformacoesDoCliente(cliente: ClienteModel) {
+    return this.http.get<ClienteModelInfos>(`http://localhost:8080/clientes/${cliente.id}/infos`)
+    }
   constructor(private http:HttpClient) { }
 
   marcaClienteAusente(cliente: ClienteModel) {

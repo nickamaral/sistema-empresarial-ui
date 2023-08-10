@@ -4,6 +4,7 @@ import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/a
 import { Router } from '@angular/router';
 import { path } from '../shared/constants/path';
 import { ClienteModel } from './interfaces/cliente-model.interface';
+import { ClienteModelInfos } from './interfaces/cliente-model-infos.interface';
 
 @Component({
   selector: 'app-clientes',
@@ -15,7 +16,7 @@ export class ClientesComponent implements OnInit {
   listaDeClientes: ClienteModel[] = [] 
   checked: boolean = false;
   modalInformacoesClienteVisible: boolean = false;
-  clienteSelecionado?: ClienteModel;
+  clienteSelecionado?: ClienteModelInfos;
   constructor(private clienteService: ClientesService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) { }
   ngOnInit(): void {
     this.buscaListaDeClientes()
@@ -67,7 +68,7 @@ export class ClientesComponent implements OnInit {
   }
   abreModalDeInformacoesCliente(cliente: ClienteModel){
     this.modalInformacoesClienteVisible = true
-    this.clienteSelecionado = cliente
+    this.clienteService.pegaTodasInformacoesDoCliente(cliente).subscribe(clienteInfo => this.clienteSelecionado=clienteInfo)
   }
   atualizaListaClientes(){
     this.buscaListaDeClientes()
