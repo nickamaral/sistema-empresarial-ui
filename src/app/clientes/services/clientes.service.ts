@@ -12,7 +12,7 @@ import { ClienteModelInfos } from '../interfaces/cliente-model-infos.interface';
 
 export class ClientesService {
   pegaTodasInformacoesDoCliente(cliente: ClienteModel) {
-    return this.http.get<ClienteModelInfos>(`http://localhost:8080/clientes/${cliente.id}/infos`)
+    return this.http.get<ClienteModelInfos>(`http://localhost:8080/clientes/id/${cliente.id}/infos`)
     }
   constructor(private http:HttpClient) { }
 
