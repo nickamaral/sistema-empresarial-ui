@@ -16,10 +16,11 @@
                 <p-columnFilter type="text" matchMode="contains" [showMenu]="false" field="nome"></p-columnFilter>
             </th>
             <th></th>
-            <th>
-                <p-columnFilter type="text" matchMode="startsWith" [showMenu]="false" field="cpf"></p-columnFilter>
+            <th style="max-width:170px">
+                <p-columnFilter  type="text" matchMode="startsWith" [showMenu]="false" field="cpf"></p-columnFilter>
             </th>
             
+            <th style="min-width:150px"></th>
             <th></th>
         </tr>
     
@@ -28,14 +29,14 @@
         <tr class="centralizada">
             <td>{{ cliente.id }}</td>
             <td>{{ cliente.nome }}</td>
-            <td>{{ cliente.telefone }}</td>
-            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.telefone | telefone }}</td>
+            <td>{{ cliente.cpf | cpf }}</td>
             <td style="text-align: center;" [ngClass]="cliente.statusDoCliente">{{ cliente.statusDoCliente }}</td>
-            <td>
+            <td style="text-align: center;" >
                 <p-button (click)="clienteComoAusente(cliente)" *ngIf="cliente.statusDoCliente == 'PRESENTE'" icon="pi pi-bell" styleClass="p-button-rounded p-button-primary mx-2"></p-button>
                 <p-button (click)="editaCliente(cliente)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning mx-2"></p-button>
                 <p-button (click)="abreModalParaRemoverCliente(cliente)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger mx-2"></p-button>
-                <p-button (click)="abreModalDeInformacoesCliente(cliente)" icon="pi pi-external-link" label="Show"></p-button>
+                <p-button (click)="abreModalDeInformacoesCliente(cliente)" icon="pi pi-external-link" label="Abrir" styleClass="mx-2"></p-button>
             <app-clientes-sala-formulario *ngIf="cliente.statusDoCliente == 'AUSENTE'"
             (atualizarListaEventEmmitter)="atualizaListaClientes()"
             [idCliente]="cliente.id"></app-clientes-sala-formulario>
@@ -55,29 +56,40 @@
     </ng-template>
 </p-confirmDialog>
 <p-dialog header="Header" [(visible)]="modalInformacoesClienteVisible" [style]="{ width: '50vw' }"  >
-    <p>
-        <span class="mx-2"><strong>NOME: </strong></span>{{clienteSelecionado?.nome}}
-    </p>
-    <p>
-        <span class="mx-2"><strong>IDADE: </strong></span>{{clienteSelecionado?.idade}}
-    </p>
-    <P>
-        <span class="mx-2"><strong>TELEFONE: </strong></span>{{clienteSelecionado?.telefone}}
-    </P>
-    <p>
-        <span class="mx-2"><strong>CPF: </strong></span>{{clienteSelecionado?.cpf}}
-    </p>
-    <p>
-        <span class="mx-2"><strong>EMAIL: </strong></span>{{clienteSelecionado?.email}}
-    </p>
-    <p>
-        <span class="mx-2"><strong>SALA: </strong></span>{{clienteSelecionado?.sala}}
-    </p>
-    <p>
-        <span class="mx-2"><strong>STATUS: </strong></span>{{clienteSelecionado?.statusDoCliente}}
-    </p>
-    <p>
-        <span class="mx-2"><strong>DATAHORA: </strong></span>{{clienteSelecionado?.dataHora}}
-    </p>
+    <div class="grid">
+        <div class="col-6">
+            <p>
+                <span class="mx-2"><strong>NOME: </strong></span>{{clienteSelecionado?.nome}}
+            </p>
+            <p>
+                <span class="mx-2"><strong>IDADE: </strong></span>{{clienteSelecionado?.idade}}
+            </p>
+            <P>
+                <span class="mx-2"><strong>TELEFONE: </strong></span>{{clienteSelecionado?.telefone | telefone}}
+            </P>
+            <p>
+                <span class="mx-2"><strong>CPF: </strong></span>{{clienteSelecionado?.cpf | cpf}}
+            </p>
+            <p>
+                <span class="mx-2"><strong>ENDEREÇO: </strong></span>{{clienteSelecionado?.endereco}}
+            </p>
+            <p>
+                <span class="mx-2"><strong>EMAIL: </strong></span>{{clienteSelecionado?.email}}
+            </p>
+            <p>
+                <span class="mx-2"><strong>SALA: </strong></span>{{clienteSelecionado?.sala}}
+            </p>
+            <p>
+                <span class="mx-2"><strong>STATUS: </strong></span>{{clienteSelecionado?.statusDoCliente}}
+            </p>
+            <p>
+                <span class="mx-2"><strong>DATAHORA: </strong></span>{{clienteSelecionado?.dataHora}}
+            </p>
+        </div>
+        <div class="col-6">
+            <p-image [src]="urlFotoCliente | safePipe" alt="" width="250"></p-image>
+        </div>
+    </div>
+    
 </p-dialog>
 

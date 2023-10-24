@@ -13,7 +13,8 @@ import { ClienteModelInfos } from './interfaces/cliente-model-infos.interface';
   providers: [ConfirmationService, MessageService]
 })
 export class ClientesComponent implements OnInit {
-  listaDeClientes: ClienteModel[] = [] 
+  urlFotoCliente?: string = ""
+  listaDeClientes: ClienteModel[] = []
   checked: boolean = false;
   modalInformacoesClienteVisible: boolean = false;
   clienteSelecionado?: ClienteModelInfos;
@@ -46,10 +47,10 @@ export class ClientesComponent implements OnInit {
         }
       }
     });
-   
+
 
   }
-  editaCliente(cliente: ClienteModel){
+  editaCliente(cliente: ClienteModel) {
     this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO}/${cliente.id}`)
   }
   abreFormulario() {
@@ -58,19 +59,26 @@ export class ClientesComponent implements OnInit {
   abreBusca() {
     this.router.navigateByUrl(`/${path.CLIENTE_BUSCA}`)
   }
-  clienteComoAusente(cliente: ClienteModel){
-    this.clienteService.marcaClienteAusente(cliente).subscribe(()=> {
+  clienteComoAusente(cliente: ClienteModel) {
+    this.clienteService.marcaClienteAusente(cliente).subscribe(() => {
       this.buscaListaDeClientes()
     })
   }
-  abreLogDeCliente(cliente: ClienteModel){
+  abreLogDeCliente(cliente: ClienteModel) {
     this.router.navigateByUrl(`/${path.CLIENTE_LOG}/${cliente}`)
   }
-  abreModalDeInformacoesCliente(cliente: ClienteModel){
+  abreModalDeInformacoesCliente(cliente: ClienteModel) {
     this.modalInformacoesClienteVisible = true
-    this.clienteService.pegaTodasInformacoesDoCliente(cliente).subscribe(clienteInfo => this.clienteSelecionado=clienteInfo)
+    this.clienteService.pegaTodasInformacoesDoCliente(cliente).subscribe(clienteInfo => this.clienteSelecionado = clienteInfo)
+    this.clienteService.buscaPorFoto(cliente).subscribe((response: any) => {
+      let dataType = response.type;
+      let binaryData = [];
+      binaryData.push(response);
+      this.urlFotoCliente = window.URL.createObjectURL(new Blob(binaryData, { type: dataType }));
+    }
+    )
   }
-  atualizaListaClientes(){
+  atualizaListaClientes() {
     this.buscaListaDeClientes()
   }
 }

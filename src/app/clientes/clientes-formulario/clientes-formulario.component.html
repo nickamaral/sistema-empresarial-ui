@@ -10,7 +10,7 @@
         </div>
         <div class="formulario-campo">
             <span class="p-float-label">
-                <input id="cpf" type="text" pInputText formControlName="cpf" />
+                <p-inputMask mask="999.999.999-99" id="cpf" formControlName="cpf" placeholder="999.999.999-99"></p-inputMask>
                 <label htmlFor="cpf">CPF</label>
             </span>
         </div>
@@ -18,6 +18,12 @@
             <span class="p-float-label">
                 <input id="idade" type="text" pInputText formControlName="idade" />
                 <label htmlFor="idade">Idade</label>
+            </span>
+        </div>
+        <div class="formulario-campo">
+            <span class="p-float-label">
+                <input id="endereco" type="text" pInputText formControlName="endereco" />
+                <label htmlFor="endereco">Endereço</label>
             </span>
         </div>
         <div class="formulario-campo">
@@ -30,6 +36,12 @@
         <span class="p-float-label">
             <input id="gmail" type="text" pInputText formControlName="email" />
             <label htmlFor="gmail">Email</label>
+        </span>
+    </div>
+    <div class="formulario-campo">
+        <span class="p-float-label">
+            <input id="urlFoto" type="text" pInputText formControlName="urlFoto" />
+            <label htmlFor="urlFoto">Url da Foto</label>
         </span>
     </div>
     <p-button  *ngIf="isInserindo" label="Adcionar Cliente" [loading]="loading" type="submit" [disabled]="form.invalid"></p-button>

@@ -6,4 +6,6 @@ export interface ClienteModel{
     telefone: string
     cpf: string
     statusDoCliente: string
+    endereco: string
+    urlFoto: string
 }

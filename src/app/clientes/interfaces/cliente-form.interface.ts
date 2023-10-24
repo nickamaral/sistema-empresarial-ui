@@ -4,4 +4,6 @@ export interface ClienteForm{
     idade: string
     telefone: string
     cpf: string
+    endereco: string
+    urlFoto: string
 }

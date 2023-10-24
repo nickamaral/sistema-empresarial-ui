@@ -5,6 +5,7 @@ import { ClientesFormularioComponent } from './clientes-formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
+import { InputMaskModule } from 'primeng/inputmask';
 
 
 
@@ -22,6 +23,7 @@ import { ButtonModule } from 'primeng/button';
     ReactiveFormsModule,
     CommonModule,
     InputTextModule,
+    InputMaskModule,
   ]
 })
 export class ClientesFormularioModule { }

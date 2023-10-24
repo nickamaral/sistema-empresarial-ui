@@ -17,6 +17,9 @@ import { ClientesLogModule } from './clientes-log/clientes-log.module';
 import { DialogModule } from 'primeng/dialog';
 import { ClientesSalaFormularioComponent } from './clientes-sala-formulario/clientes-sala-formulario.component';
 import { ClientesSalaFormularioModule } from './clientes-sala-formulario/clientes-sala-formulario.module';
+import { PipesModule } from '../shared/pipes/pipes.module';
+import { ImageModule } from 'primeng/image';
+import { SafePipeModule } from 'safe-pipe';
 
 
 @NgModule({
@@ -35,6 +38,9 @@ import { ClientesSalaFormularioModule } from './clientes-sala-formulario/cliente
     TableModule,
     InputTextModule,
     ConfirmDialogModule,
+    PipesModule,
+    ImageModule,
+    SafePipeModule,
   ]
   ,providers: [
     ConfirmationService

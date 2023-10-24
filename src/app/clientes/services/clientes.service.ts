@@ -11,11 +11,12 @@ import { ClienteModelInfos } from '../interfaces/cliente-model-infos.interface';
 })
 
 export class ClientesService {
-  pegaTodasInformacoesDoCliente(cliente: ClienteModel) {
-    return this.http.get<ClienteModelInfos>(`http://localhost:8080/clientes/id/${cliente.id}/infos`)
-    }
   constructor(private http:HttpClient) { }
 
+  pegaTodasInformacoesDoCliente(cliente: ClienteModel) {
+    return this.http.get<ClienteModelInfos>(`http://localhost:8080/clientes/id/${cliente.id}/infos`)
+  }
+  
   marcaClienteAusente(cliente: ClienteModel) {
     const clienteStatusForm={status:"AUSENTE"}
     return this.http.post(`http://localhost:8080/clientes/${cliente.id}/status`,clienteStatusForm)
@@ -23,7 +24,7 @@ export class ClientesService {
   marcaClientePresente(id:string,clienteStatusForm:ClienteStatusForm){
     return this.http.post(`http://localhost:8080/clientes/${id}/status`,clienteStatusForm)
   }
-
+  
   buscaPorId(id:string  ) {
     return this.http.get<ClienteModel>(`http://localhost:8080/clientes/${id}`)
   }
@@ -42,5 +43,8 @@ export class ClientesService {
   }
   buscaPorCpf(cpf:string ){
     return this.http.get<ClienteModel>(`http://localhost:8080/clientes/cpf/${cpf}`)
+  }
+  buscaPorFoto(cliente: ClienteModel) {
+    return this.http.get(`http://localhost:8080/fotos/clientes/${cliente.id}`,{responseType: 'blob' as 'json'})
   }
 }

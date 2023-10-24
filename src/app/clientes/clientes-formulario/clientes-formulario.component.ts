@@ -36,6 +36,7 @@ export class ClientesFormularioComponent implements OnInit {
             nome: [clienteModel.nome,[Validators.required]], //validacoes formbuilder angu apenas front 
             email: [clienteModel.email,[Validators.required,Validators.email]],
             idade: [clienteModel.idade],
+            endereco: [clienteModel.endereco],
             cpf: [clienteModel.cpf,[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
             telefone: [clienteModel.telefone]
         })
@@ -48,7 +49,9 @@ export class ClientesFormularioComponent implements OnInit {
           nome: ["",[Validators.required]], //validacoes formbuilder angu apenas front 
           email: ["",[Validators.required,Validators.email]],
           idade: [""],
-          cpf: ["",[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
+          endereco: [""],
+          urlFoto: [""],
+          cpf: ["",[Validators.required,Validators.maxLength(14),Validators.minLength(14)]],
           telefone: [""]
         })
       }

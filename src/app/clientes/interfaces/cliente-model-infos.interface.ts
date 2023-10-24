@@ -6,5 +6,7 @@ export interface ClienteModelInfos{
     cpf: string
     statusDoCliente: string
     sala: string
-    dataHora: Date   
+    dataHora: Date  
+    endereco: string 
+    urlFoto: string
 }

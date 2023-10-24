@@ -2,7 +2,10 @@
     background-color: yellow;
 }
 
-
+td{
+    border: 1px solid rgba(210, 210, 210, 0.801) !important; 
+    border-radius: 0px !important; //bom ser evitado
+}
 
 .PRESENTE{
     background-color: green;
