@@ -6,15 +6,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
 import { InputMaskModule } from 'primeng/inputmask';
+import { ClientesFormularioFotoModule } from './clientes-formulario-foto/clientes-formulario-foto.module';
+import { ClientesFormularioFotoComponent } from './clientes-formulario-foto/clientes-formulario-foto.component';
+
 
 
 
 @NgModule({
   declarations: [
-    ClientesFormularioComponent
+    ClientesFormularioComponent,
   ],
   exports: [
-    ClientesFormularioComponent
+    ClientesFormularioComponent,
+    ClientesFormularioFotoComponent,
   ],
   imports: [
     FormsModule,
@@ -24,6 +28,7 @@ import { InputMaskModule } from 'primeng/inputmask';
     CommonModule,
     InputTextModule,
     InputMaskModule,
+    ClientesFormularioFotoModule,
   ]
 })
 export class ClientesFormularioModule { }

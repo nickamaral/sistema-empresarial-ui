@@ -7,6 +7,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClientesModule } from './clientes/clientes.module';
 import {HttpClientModule} from '@angular/common/http';
 import { PipesModule } from './shared/pipes/pipes.module';
+
 @NgModule({
   declarations: [
     AppComponent,

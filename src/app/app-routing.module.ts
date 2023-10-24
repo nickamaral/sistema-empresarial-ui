@@ -5,9 +5,11 @@ import { ClientesFormularioComponent } from './clientes/clientes-formulario/clie
 import { ClientesBuscaComponent } from './clientes/clientes-busca/clientes-busca.component';
 import { path } from './shared/constants/path';
 import { ClientesLogComponent } from './clientes/clientes-log/clientes-log.component';
+import { ClientesFormularioFotoComponent } from './clientes/clientes-formulario/clientes-formulario-foto/clientes-formulario-foto.component';
 
 const routes: Routes = [
   {path:"",component:ClientesComponent},
+  {path:`${path.CLIENTE_FORMULARIO_FOTO}/:id`,component:ClientesFormularioFotoComponent},
   {path:path.CLIENTE_FORMULARIO,component:ClientesFormularioComponent},
   {path:`${path.CLIENTE_FORMULARIO}/:id`,component:ClientesFormularioComponent},
   {path:`${path.CLIENTE_LOG}/:id`,component:ClientesLogComponent},
