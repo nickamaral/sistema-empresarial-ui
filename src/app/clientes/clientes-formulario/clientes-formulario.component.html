@@ -1,4 +1,4 @@
-<div class="conteudo">
+<!-- <div class="conteudo">
     <h1 *ngIf="isInserindo">FORMULÁRIO CLIENTE</h1>
     <h1 *ngIf="!isInserindo">EDITANDO CLIENTE</h1>
     <form [formGroup]="form" (submit)="criaCliente()" *ngIf="form">          
@@ -42,4 +42,42 @@
     <p-button  *ngIf="!isInserindo" label="Próxima Etapa" [loading]="loading" type="submit" [disabled]="form.invalid"></p-button>
 </form>
 <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>  -->
+
+<div class="container">
+    <div class="conteudo-formulario">
+        <div class="titulo">
+            <h1 *ngIf="isInserindo">FORMULÁRIO CLIENTE</h1>
+        <h1 *ngIf="!isInserindo">EDITANDO CLIENTE</h1>
+        </div>
+        <div class="formulario">
+            <form [formGroup]="form" (submit)="criaCliente()" *ngIf="form">
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="nome">Nome</label>
+                        <input id="nome" type="text" pInputText formControlName="nome" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                        <label for="cpf">Cpf</label>
+                        <input id="cpf" type="text" pInputText formControlName="cpf" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                        <label for="idade">Idade</label>
+                        <input id="idade" type="text" pInputText formControlName="idade" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                    </div>
+                    <div class="field col">
+                        <label for="telefone">Telefone</label>
+                        <input id="telefone" type="text" pInputText formControlName="telefone" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                        <label for="endereco">Endereço</label>
+                        <input id="endereco" type="text" pInputText formControlName="endereco" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                        <label for="gmail">Email</label>
+                        <input id="gmail" type="text" pInputText formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                    </div>
+                </div>
+                <div>
+                    <button pButton class="teste" styleClass="p-button-lg mr-2 mb-2 teste" *ngIf="isInserindo" label="Próxima Etapa" [loading]="loading" type="submit" [disabled]="form.invalid"></button>
+                    <button pButton class="teste" styleClass="p-button-lg mr-2 mb-2 teste" *ngIf="!isInserindo" label="Próxima Etapa" [loading]="loading" type="submit" [disabled]="form.invalid"></button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
 </div>
+
+

@@ -1,3 +1,15 @@
-<p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" 
-accept="image/*" (onUpload)="onUpload($event)"></p-fileUpload>
-<h1>nicolas</h1>
+
+
+<div class="container">
+    <div class="conteudo-formulario-foto">
+        <div class="titulo">
+            <h1>Fórmulario Cliente</h1>
+            <h4>Escolha a foto do cliente</h4>
+        </div>
+        <div class="formulario">
+            <p-fileUpload mode="basic" chooseLabel="Choose" url="https://www.primefaces.org/cdn/api/upload.php" 
+            accept="image/*" (onUpload)="onUpload($event)"></p-fileUpload>
+        </div>
+    
+    </div>
+</div>

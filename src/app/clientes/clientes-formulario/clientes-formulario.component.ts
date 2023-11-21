@@ -3,9 +3,11 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClienteForm } from '../interfaces/cliente-form.interface';
 import { ClientesService } from '../services/clientes.service';
 import { Message } from 'primeng/api';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { identifierName } from '@angular/compiler';
 import { ClientesModule } from '../clientes.module';
+import { ClienteModel } from '../interfaces/cliente-model.interface';
+import { path } from 'src/app/shared/constants/path';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class ClientesFormularioComponent implements OnInit {
   idParaBuscar: string = ""
   
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute,
+    private router: Router,
     private clientesService: ClientesService){
 
   }
@@ -37,7 +40,7 @@ export class ClientesFormularioComponent implements OnInit {
             email: [clienteModel.email,[Validators.required,Validators.email]],
             idade: [clienteModel.idade],
             endereco: [clienteModel.endereco],
-            cpf: [clienteModel.cpf,[Validators.required,Validators.maxLength(11),Validators.minLength(11)]],
+            cpf: [clienteModel.cpf,[Validators.required,Validators.maxLength(14),Validators.minLength(14)]],
             telefone: [clienteModel.telefone]
         })
         
@@ -49,10 +52,10 @@ export class ClientesFormularioComponent implements OnInit {
           nome: ["",[Validators.required]], //validacoes formbuilder angu apenas front 
           email: ["",[Validators.required,Validators.email]],
           idade: [""],
-          endereco: [""],
+          endereco: ["rua continental"],
           urlFoto: [""],
           cpf: ["",[Validators.required,Validators.maxLength(14),Validators.minLength(14)]],
-          telefone: [""]
+          telefone: ["11965245568"]
         })
       }
     })
@@ -61,7 +64,7 @@ export class ClientesFormularioComponent implements OnInit {
     this.loading= true
     const cliente = this.form.getRawValue() as ClienteForm  //pega objeto criado do form
     if(this.isInserindo){
-      this.clientesService.criaCliente(cliente).subscribe(()=>this.realizaAcoesDeSucesso(),
+      this.clientesService.criaCliente(cliente).subscribe(clienteCriado=>this.realizaAcoesDeSucesso(clienteCriado),
                                                       error=>this.realizaAcoesDeErro(error))
     }else{
       this.clientesService.atualizaPorId(this.idParaAlterar,cliente).subscribe(()=>this.realizaAcoesDeSucessoParaAlterar(),
@@ -73,14 +76,16 @@ export class ClientesFormularioComponent implements OnInit {
     this.messages = [{ severity: 'error', summary: 'ERRO', detail: 'Erro nas informações' }]; 
     this.loading = false
   }
-  realizaAcoesDeSucesso(): void {
+  realizaAcoesDeSucesso(clienteCriado:ClienteModel): void {
     this.form.reset()
     this.messages = [{ severity: 'success', summary: 'Successo', detail: 'Criado com sucesso' }]; 
     this.loading = false
+    this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO_FOTO}/${clienteCriado.id}`)
   }
   realizaAcoesDeSucessoParaAlterar(): void {
     this.form.reset()
     this.messages = [{ severity: 'success', summary: 'Successo', detail: 'Alterado sucesso' }]; 
     this.loading = false
+    this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO_FOTO}/${this.idParaAlterar}`)
   }
 }

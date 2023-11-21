@@ -39,12 +39,17 @@ export class ClientesService {
     return this.http.get<ClienteModel[]>("http://localhost:8080/clientes")
   }
   criaCliente(cliente: ClienteForm) {
-    return this.http.post("http://localhost:8080/clientes",cliente)
+    return this.http.post<ClienteModel>("http://localhost:8080/clientes",cliente)
   }
   buscaPorCpf(cpf:string ){
     return this.http.get<ClienteModel>(`http://localhost:8080/clientes/cpf/${cpf}`)
   }
   buscaPorFoto(cliente: ClienteModel) {
     return this.http.get(`http://localhost:8080/fotos/clientes/${cliente.id}`,{responseType: 'blob' as 'json'})
+  }
+  mandaFoto(id: string,foto:File){
+    const formData: FormData = new FormData();
+    formData.append('file', foto, foto.name);
+    return this.http.post(`http://localhost:8080/fotos/clientes/${id}`,formData)
   }
 }

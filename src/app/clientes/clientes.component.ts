@@ -69,6 +69,7 @@ export class ClientesComponent implements OnInit {
   }
   abreModalDeInformacoesCliente(cliente: ClienteModel) {
     this.modalInformacoesClienteVisible = true
+    this.urlFotoCliente = ""
     this.clienteService.pegaTodasInformacoesDoCliente(cliente).subscribe(clienteInfo => this.clienteSelecionado = clienteInfo)
     this.clienteService.buscaPorFoto(cliente).subscribe((response: any) => {
       let dataType = response.type;
