@@ -7,11 +7,12 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClientesModule } from './clientes/clientes.module';
 import {HttpClientModule} from '@angular/common/http';
 import { PipesModule } from './shared/pipes/pipes.module';
+import { HeaderComponent } from './header/header.component';
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-  
+    AppComponent,  
   ],
   imports: [
     BrowserModule,
@@ -20,6 +21,7 @@ import { PipesModule } from './shared/pipes/pipes.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     PipesModule,
+    HeaderModule,
   
   ],
   providers: [],
