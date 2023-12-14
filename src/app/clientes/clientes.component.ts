@@ -15,7 +15,6 @@ import { ClienteModelInfos } from './interfaces/cliente-model-infos.interface';
 export class ClientesComponent implements OnInit {
   urlFotoCliente?: string = ""
   listaDeClientes: ClienteModel[] = []
-  checked: boolean = false;
   modalInformacoesClienteVisible: boolean = false;
   clienteSelecionado?: ClienteModelInfos;
   constructor(private clienteService: ClientesService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) { }

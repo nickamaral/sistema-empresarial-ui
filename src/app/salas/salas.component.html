@@ -1,0 +1,59 @@
+<h2 style="text-align: center;">Tabela de Salas</h2>
+<p-table [value]="listaDeSalas"  [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-cliente>
+        <tr class="centralizada">
+            <th>ID</th>
+            <th>EMPRESA </th>
+            <th>CNPJ</th>
+            <th>NÚMERO</th>
+            <th>ANDAR</th>
+            <th>RESPONSÁVEL</th>
+            <th>TIPO</th>
+            <th><p-button label="ADCIONAR SALA" (click)="abreFormulario()"styleClass="p-button-rounded p-button-success mx-2"></p-button></th>
+            
+        </tr>
+        <tr class="centralizada">
+            <th></th>
+            <th>
+                <p-columnFilter type="text" matchMode="contains" [showMenu]="false" field="cnpj"></p-columnFilter>
+            </th>
+            <th></th>
+            <th style="max-width:170px">
+                <p-columnFilter  type="text" matchMode="startsWith" [showMenu]="false" field="numero"></p-columnFilter>
+            </th>
+            
+            <th style="min-width:150px"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    
+    </ng-template>
+    <ng-template pTemplate="body" let-sala>              
+        <tr class="centralizada">
+            <td>{{ sala.id }}</td>
+            <td>{{ sala.empresa }}</td>
+            <td>{{ sala.cnpj}}</td>
+            <td>{{ sala.numero }}</td>
+            <td>{{ sala.andar }}</td>
+            <td>{{ sala.responsavel }}</td>
+            <td>{{ sala.tipoSala }}</td>
+            <td style="text-align: center;" >
+                <p-button (click)="editaSala(sala)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning mx-2"></p-button>
+                <p-button (click)="abreModalParaRemoverSala(sala)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger mx-2"></p-button>
+                
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-toast></p-toast>
+<p-confirmDialog #cd [style]="{width: '50vw'}">
+    <ng-template pTemplate="header">
+        <h3>AVISO</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+        
+    </ng-template>
+</p-confirmDialog> 

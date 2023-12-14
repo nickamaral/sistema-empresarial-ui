@@ -9,16 +9,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { PipesModule } from './shared/pipes/pipes.module';
 import { HeaderComponent } from './header/header.component';
 import { HeaderModule } from './header/header.module';
+import { SalasComponent } from './salas/salas.component';
+import { SalasModule } from './salas/salas.module';
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     ClientesModule,
     HttpClientModule,
     AppRoutingModule,
+    SalasModule,
     BrowserAnimationsModule,
     PipesModule,
     HeaderModule,
