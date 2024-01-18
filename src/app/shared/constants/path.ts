@@ -4,5 +4,7 @@ export const path = {
     CLIENTE_LOG:"clientes-log",
     CLIENTE_FORMULARIO_FOTO:"clientes-formulario-foto",
     SALA_BUSCA:"sala-busca",
+    SALA_FORMULARIO:"salas-formulario",
+
 }
 

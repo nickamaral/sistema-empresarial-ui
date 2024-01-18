@@ -12,6 +12,8 @@ import { PipesModule } from '../shared/pipes/pipes.module';
 import { ImageModule } from 'primeng/image';
 import { SafePipeModule } from 'safe-pipe';
 import { SalasComponent } from './salas.component';
+import { SalasFormularioComponent } from './salas-formulario/salas-formulario.component';
+import { SalasFormularioModule } from './salas-formulario/salas-formulario.module';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { SalasComponent } from './salas.component';
     ButtonModule,
     ToggleButtonModule,
     TableModule,
+    SalasFormularioModule,
     InputTextModule,
     ConfirmDialogModule,
     PipesModule,

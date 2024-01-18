@@ -7,6 +7,7 @@ import { path } from './shared/constants/path';
 import { ClientesLogComponent } from './clientes/clientes-log/clientes-log.component';
 import { ClientesFormularioFotoComponent } from './clientes/clientes-formulario/clientes-formulario-foto/clientes-formulario-foto.component';
 import { SalasComponent } from './salas/salas.component';
+import { SalasFormularioComponent } from './salas/salas-formulario/salas-formulario.component';
 
 const routes: Routes = [
   {path:"",component:ClientesComponent},
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path:`${path.CLIENTE_LOG}/:id`,component:ClientesLogComponent},
   {path:path.CLIENTE_BUSCA,component:ClientesBuscaComponent},
   {path:path.SALA_BUSCA,component:SalasComponent},
+  {path:path.SALA_FORMULARIO,component:SalasFormularioComponent},
+  {path:`${path.SALA_FORMULARIO}/:id`,component:SalasFormularioComponent},
 ];
 
 @NgModule({

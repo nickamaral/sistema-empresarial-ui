@@ -45,10 +45,10 @@ export class SalasComponent implements OnInit {
 
   }
   editaSala(sala: SalaModel) {
-    this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO}/${sala.id}`)
+    this.router.navigateByUrl(`/${path.SALA_FORMULARIO}/${sala.id}`)
   }
   abreFormulario() {
-    this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO}`)
+    this.router.navigateByUrl(`/${path.SALA_FORMULARIO}`)
   }
   atualizaListaSalas() {
     this.buscaListaDeSalas()
