@@ -1,1 +1,35 @@
-<p>salas-formulario works!</p>
+<div class="container">
+    <div class="conteudo-formulario">
+        <div class="titulo">
+            <h1 *ngIf="isInserindo">FORMULÁRIO SALAS</h1>
+        <h1 *ngIf="!isInserindo">EDITANDO SALAS</h1>
+        </div>
+        <div class="formulario">
+            <form [formGroup]="form" (submit)="criaSala()" *ngIf="form">
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="empresa">empresa</label>
+                        <input id="empresa" type="text" pInputText formControlName="empresa" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                        <label for="cnpj">cnpj</label>
+                        <input id="cnpj" type="text" pInputText formControlName="cnpj" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                        <label for="numero">numero</label>
+                        <input id="numero" type="text" pInputText formControlName="numero" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                    </div>
+                    <div class="field col">
+                        <label for="andar">andar</label>
+                        <input id="andar" type="text" pInputText formControlName="andar" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                        <label for="responsavel">responsavel</label>
+                        <input id="responsavel" type="text" pInputText formControlName="responsavel" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                        <label for="tipoSala">tipo</label>
+                        <input id="tipoSala" type="text" pInputText formControlName="tipoSala" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                    </div>
+                </div>
+                <div>
+                    <button pButton class="teste" styleClass="p-button-lg mr-2 mb-2 teste" *ngIf="isInserindo" label="Próxima Etapa" [loading]="loading" type="submit" [disabled]="form.invalid"></button>
+                    <button pButton class="teste" styleClass="p-button-lg mr-2 mb-2 teste" *ngIf="!isInserindo" label="Próxima Etapa" [loading]="loading" type="submit" [disabled]="form.invalid"></button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>

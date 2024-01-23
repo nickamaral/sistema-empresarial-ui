@@ -16,8 +16,8 @@ export class SalaService {
   buscaPorId(id:string  ) {
     return this.http.get<SalaModel>(`${URL_API}/${id}`)
   }
-  atualizaPorId(id:string  ,cliente:SalaForm) {
-    return this.http.put(`${URL_API}/${id}`,cliente)
+  atualizaPorId(id:string  ,sala:SalaForm) {
+    return this.http.put(`${URL_API}/${id}`,sala)
   }
   delete(id: any) {
     return this.http.delete(`${URL_API}/${id}`)
@@ -26,8 +26,8 @@ export class SalaService {
   listaTudo(){
     return this.http.get<SalaModel[]>(`${URL_API}`)
   }
-  criaCliente(cliente: SalaForm) {
-    return this.http.post<SalaModel>(`${URL_API}`,cliente)
+  criaCliente(sala: SalaForm) {
+    return this.http.post<SalaModel>(`${URL_API}`,sala)
   }
 
 }
