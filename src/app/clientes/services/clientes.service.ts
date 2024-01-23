@@ -33,11 +33,7 @@ export class ClientesService {
   }
   delete(id: any) {
     return this.http.delete(`http://localhost:8080/clientes/${id}`)
-  }
-
-
-
-  
+  }  
   
   listaTudo(){
     return this.http.get<ClienteModel[]>("http://localhost:8080/clientes")
