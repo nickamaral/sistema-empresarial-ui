@@ -11,6 +11,9 @@ const URL_API = `${environment.URL_API}/salas`
 export class SalaService {
 
   constructor(private http: HttpClient) { }
+
+
+  
   
   
   buscaPorId(id:string  ) {
