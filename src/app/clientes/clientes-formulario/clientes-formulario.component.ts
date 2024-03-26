@@ -8,6 +8,7 @@ import { identifierName } from '@angular/compiler';
 import { ClientesModule } from '../clientes.module';
 import { ClienteModel } from '../interfaces/cliente-model.interface';
 import { path } from 'src/app/shared/constants/path';
+import { ErrorModelApi } from 'src/app/shared/interfaces/error-model-api.interface';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class ClientesFormularioComponent implements OnInit {
   messages: Message [] = []
   idParaAlterar: string = ""
   idParaBuscar: string = ""
+  mensagemDeErroDaAPI: string = ""
   
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -73,7 +75,9 @@ export class ClientesFormularioComponent implements OnInit {
   }
   realizaAcoesDeErro(error: any): void {
     console.log(error)
-    this.messages = [{ severity: 'error', summary: 'ERRO', detail: 'Erro nas informações' }]; 
+    const apiError = new ErrorModelApi(error.error)
+    this.mensagemDeErroDaAPI = apiError.getMensagemDeErro()
+    this.messages = [{ severity: 'error', summary: 'ERRO', detail:`${apiError.message}` }]; 
     this.loading = false
   }
   realizaAcoesDeSucesso(clienteCriado:ClienteModel): void {

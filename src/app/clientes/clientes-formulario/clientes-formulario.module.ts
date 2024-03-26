@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputMaskModule } from 'primeng/inputmask';
 import { ClientesFormularioFotoModule } from './clientes-formulario-foto/clientes-formulario-foto.module';
 import { ClientesFormularioFotoComponent } from './clientes-formulario-foto/clientes-formulario-foto.component';
+import { MensagensDoSistemaModule } from 'src/app/shared/components/mensagens-do-sistema/mensagens-do-sistema.module';
 
 
 
@@ -25,6 +26,7 @@ import { ClientesFormularioFotoComponent } from './clientes-formulario-foto/clie
     ButtonModule,
     MessagesModule,
     ReactiveFormsModule,
+    MensagensDoSistemaModule,
     CommonModule,
     InputTextModule,
     InputMaskModule,

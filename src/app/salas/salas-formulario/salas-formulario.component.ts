@@ -7,6 +7,7 @@ import { ClientesService } from "src/app/clientes/services/clientes.service";
 import { SalaService } from "../services/sala.service";
 import { SalaForm } from "../interfaces/sala-form.interface";
 import { SalaModel } from "../interfaces/sala-model.interface";
+import { ErrorModelApi } from "src/app/shared/interfaces/error-model-api.interface";
 
 @Component({
   selector: 'app-salas-formulario',
@@ -70,7 +71,8 @@ export class SalasFormularioComponent implements OnInit {
   }
   realizaAcoesDeErro(error: any): void {
     console.log(error)
-    this.messages = [{ severity: 'error', summary: 'ERRO', detail: 'Erro nas informações' }]; 
+    const apiError = error.error as ErrorModelApi
+    this.messages = [{ severity: 'error', summary: 'ERRO', detail:`${apiError.message}` }]; 
     this.loading = false
   }
   realizaAcoesDeSucesso(salaCriada:SalaModel): void {

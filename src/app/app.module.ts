@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderModule } from './header/header.module';
 import { SalasComponent } from './salas/salas.component';
 import { SalasModule } from './salas/salas.module';
+import { MensagensDoSistemaModule } from './shared/components/mensagens-do-sistema/mensagens-do-sistema.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SalasModule } from './salas/salas.module';
     HttpClientModule,
     AppRoutingModule,
     SalasModule,
+    MensagensDoSistemaModule,
     BrowserAnimationsModule,
     PipesModule,
     HeaderModule,

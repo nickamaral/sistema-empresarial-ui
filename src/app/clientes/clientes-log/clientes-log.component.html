@@ -1,4 +1,5 @@
 <h1>Log do Cliente </h1>
+<button (click)="exportExcel()">EXPORTAR PARA EXCEL</button>
 <p-table [value]="logsDoCliente" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>
@@ -20,3 +21,21 @@
         </tr>
     </ng-template>
 </p-table>
+<table id="suaTabela">
+    <tr>
+        <th>DATA HORA</th>
+        <th>NOME</th>
+        <th>CPF</th>
+        <th>SALA</th>
+        <th>STATUS</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let log of logsDoCliente">
+            <td>{{log.dataHora | date: 'dd/MM/yyyy HH:mm:ss'}}</td> 
+            <td>{{ log.nomeDoCliente }}</td>
+            <td>{{ log.cpfDoCliente }}</td>
+            <td>{{ log.sala }}</td>
+            <td>{{ log.statusDoLog }}</td>
+        </tr>
+    </tbody>
+</table>
