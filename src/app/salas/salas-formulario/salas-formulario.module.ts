@@ -6,6 +6,7 @@ import { MessagesModule } from 'primeng/messages';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { ButtonModule } from 'primeng/button';
+import { MensagensDoSistemaModule } from 'src/app/shared/components/mensagens-do-sistema/mensagens-do-sistema.module';
 
 
 
@@ -16,6 +17,7 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     FormsModule,
     MessagesModule,
+    MensagensDoSistemaModule,
     ButtonModule,
     InputTextModule,
     InputMaskModule,
