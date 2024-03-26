@@ -47,6 +47,9 @@ export class SalasComponent implements OnInit {
   editaSala(sala: SalaModel) {
     this.router.navigateByUrl(`/${path.SALA_FORMULARIO}/${sala.id}`)
   }
+  abreHome(){
+    this.router.navigateByUrl(``)
+  }
   abreFormulario() {
     this.router.navigateByUrl(`/${path.SALA_FORMULARIO}`)
   }

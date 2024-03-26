@@ -52,6 +52,9 @@ export class ClientesComponent implements OnInit {
   editaCliente(cliente: ClienteModel) {
     this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO}/${cliente.id}`)
   }
+  abreBuscaSalas(){
+    this.router.navigateByUrl(`/${path.SALA_BUSCA}`)
+  }
   abreFormulario() {
     this.router.navigateByUrl(`/${path.CLIENTE_FORMULARIO}`)
   }
